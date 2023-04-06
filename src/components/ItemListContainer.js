@@ -10,7 +10,7 @@ const ItemListContainer = ({greetings}) =>
         letterSpacing: '.3rem',
         color: 'inherit',
         textDecoration: 'none',
-        mt: '10%'
+        mt: '5%'
         }}
         align="center"
     >

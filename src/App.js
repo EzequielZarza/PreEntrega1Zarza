@@ -2,13 +2,10 @@ import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
 
-function App() {
-  return (
+const App = () => 
     <div className="App">
       <Navbar/>
       <ItemListContainer greetings={'Bienvenido a Coder-House E-commerce!'}/>
     </div>
-  );
-}
 
 export default App;
