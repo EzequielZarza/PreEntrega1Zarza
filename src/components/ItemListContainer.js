@@ -1,7 +1,9 @@
 import Typography from '@mui/material/Typography';
+import ItemCount from './ItemCount';
 
 const ItemListContainer = ({greetings}) => 
-    <Typography
+    <>
+        <Typography
         variant="h5"
         noWrap
         sx={{
@@ -13,8 +15,11 @@ const ItemListContainer = ({greetings}) =>
         mt: '5%'
         }}
         align="center"
-    >
-        {greetings}
-    </Typography>
+        >   
+        {   greetings}
+        </Typography>
+        <ItemCount/>
+    </>
+
 
 export default ItemListContainer;
