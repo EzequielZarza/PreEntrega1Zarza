@@ -1,41 +1,49 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
-const categories = ['Cars', 'Motorcycles', 'SUVs', 'Utilitaries'];
+import getCategories from '../API-mock/getCategories';
+import { NavLink } from 'react-router-dom';
 
 const CategoryList = () => {
-    const [category, setCategory] = useState('');
+
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const result = await getCategories().then(response => response);
+                setCategories(result)
+            } catch(error){
+                console.error(`fetchCategories failed due to the following error: ${error}`);
+            };
+        }
+        fetchCategories();
+    },[]);
 
     const handleSelectedCategory = event => {
-        setCategory(event.target.value);
-      };
+        setSelectedCategory(event.target.value);
+    };
 
     return (
         <Box sx={{minWidth: 180 }}>
             <FormControl fullWidth>
-                <InputLabel id="Categories">Categories</InputLabel>
-                    <Select
-                    value={category}
-                    label="Categories"
-                    onChange={handleSelectedCategory}
-                    >
+                <InputLabel id="Categories">{selectedCategory ? selectedCategory : 'Categories'}</InputLabel>
+                <Select value={selectedCategory} label="Categories" onChange={handleSelectedCategory}>
                     {categories.map(category => (
-                        <MenuItem
-                            key={category}
-                            onClick={handleSelectedCategory}
-                            value={category}
-                            >
-                            {category}
-                        </MenuItem>
+                        <NavLink to={`/category/${category}`}> 
+                            <MenuItem key={category} value={category}>
+                                {category}
+                            </MenuItem>
+                        </NavLink> 
                     ))}
-                    </Select>
+                </Select>
             </FormControl>
         </Box>
-    )
-}
+    );
+};
 
 export default CategoryList;
