@@ -25,14 +25,12 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
       <Grid
         container
         mt={5}
-        className='animate__animated animate__fadeIn'
         spacing={3}
       >
         <Grid
           item
           sm={6}
           md={4}
-          className='animate__animated animate__fadeInLeft'
         >
           <Card raised sx={{margin: 2, borderRadius: 2}}>
             <CardMedia component='img' image={imagePath} alt={id} />
@@ -57,7 +55,7 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={8}>
+        <Grid item xs={12} sm={6} md={7.8}>
           <Typography component='h3' textAlign='center' gutterBottom>
             {title}
           </Typography>
