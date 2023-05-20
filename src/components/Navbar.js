@@ -5,6 +5,7 @@ import CartWidget from './CartWidget'
 import CategoryList from './CategoryList';
 import HomeIcon from '@mui/icons-material/Home';
 import { NavLink } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 const Navbar = () => {
   return (
@@ -13,13 +14,12 @@ const Navbar = () => {
         <Toolbar disableGutters sx={{mt:'0.5%'}}>
 
           <CategoryList />
-
-          <CartWidget/>
-          <div style={{marginLeft:'85%'}}>
-          <NavLink to='/' >
-            <HomeIcon sx={{ fontSize: 40, color: 'white'}} />          
-          </NavLink>
-          </div>
+          <Box sx={{marginLeft:'85%', display: 'inline-flex'}}>
+            <CartWidget/>
+            <NavLink to='/'  >
+              <HomeIcon sx={{ fontSize: 50, color: 'white',  marginLeft: 5}} />          
+            </NavLink>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>
