@@ -34,7 +34,7 @@ const CategoryList = () => {
                 <InputLabel id="Categories">{selectedCategory ? selectedCategory : 'Categories'}</InputLabel>
                 <Select value={selectedCategory} label="Categories" onChange={handleSelectedCategory}>
                     {categories.map(category => (
-                        <NavLink to={`/category/${category}`}> 
+                        <NavLink to={`/category/${category}`} style={{color: 'black'}}> 
                             <MenuItem key={category} value={category}>
                                 {category}
                             </MenuItem>
