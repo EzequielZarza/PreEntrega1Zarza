@@ -11,7 +11,7 @@ const Item = ({ id, title, price }) => {
   const handleNavigation = () => navigate(`/item/${id}`);
 
   return (
-    <Card className='animate__animated animate__fadeIn' raised>
+    <Card raised sx={{margin: 2, borderRadius: 2}}>
       <CardActionArea>
         <CardMedia
           component='img'
