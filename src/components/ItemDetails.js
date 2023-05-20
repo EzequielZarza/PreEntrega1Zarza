@@ -1,13 +1,24 @@
+import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ItemCount from './ItemCount';
 
 const ItemDetail = ({ id, title, description, price, stock }) => {
   const imagePath = `../images/${id}.png`;
+
+  const handleAddedItemToCart = amount => {
+    console.log('item added');
+  }
+
+  const handleSubstractedItemToCart = amount => {
+    console.log('item substracted');
+  }
 
   return (
     <>
@@ -23,7 +34,7 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
           md={4}
           className='animate__animated animate__fadeInLeft'
         >
-          <Card raised>
+          <Card raised sx={{margin: 2, borderRadius: 2}}>
             <CardMedia component='img' image={imagePath} alt={id} />
           </Card>
           <Box>
@@ -32,7 +43,17 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
             </Typography>
           </Box>
           <Box>
-            <ItemCount stock={stock}/>
+            <ItemCount stock={stock} onAdd={handleAddedItemToCart} onSubstract={handleSubstractedItemToCart}/>
+          </Box>
+          <Box sx={{ mt: 2 }} >
+          <Button
+            variant="outlined"
+            startIcon={<ShoppingCartCheckoutIcon />}
+            component={NavLink}
+            to='/cart'
+            >
+              Finalizar compra
+            </Button>
           </Box>
         </Grid>
 
