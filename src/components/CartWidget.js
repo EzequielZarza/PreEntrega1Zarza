@@ -1,10 +1,9 @@
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const ItemsOnCart = 0;
 
 const CartWidget = () => (
     <>
-        <AddShoppingCartIcon sx={{ display: { xs: 'none', md: 'flex'}, ml: '5%' }} fontSize='large'/>
+        <ShoppingCartIcon sx={{ display: { xs: 'none', md: 'flex'}, ml: '5%' }} fontSize='large'/>
         <p>{ItemsOnCart}</p>
     </>
 )
