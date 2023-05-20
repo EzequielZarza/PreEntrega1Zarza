@@ -9,9 +9,9 @@ const ItemCount = ({stock}) => {
 
     return (
         <ButtonGroup>
-            <Button disabled={productCounter >= stock} onClick={onAdd}>+</Button>
-            <Button disabled>{productCounter}</Button>
             <Button disabled={productCounter <= 0} onClick={onSubstract}>-</Button>
+            <Button disabled>{productCounter}</Button>
+            <Button disabled={productCounter >= stock} onClick={onAdd}>+</Button>
         </ButtonGroup>
     );
 };
