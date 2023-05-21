@@ -6,14 +6,14 @@ export const CartProvider = ({children}) => {
     const [cartItems, setCartItems] = useState([]);
 
     const addItemToCart = item => {
-        setCartItems([...cartItems, item]);
+      setCartItems([...cartItems, item]);
     }
 
-    const removeItemFromCart = item => {    console.log([...cartItems])
-        const itemIdToDelete = cartItems.findIndex(unwantedItem => unwantedItem.id === item.id);
-        let remainingItems = [...cartItems];
-        remainingItems.splice(itemIdToDelete, 1);
-        setCartItems(remainingItems);
+    const removeItemFromCart = ({id}) => {
+      const itemIdToDelete = cartItems.findIndex(unwantedItem => unwantedItem.id === id);
+      let remainingItems = [...cartItems];
+      remainingItems.splice(itemIdToDelete, 1);
+      setCartItems(remainingItems);
     }
 
     const itemsInCartAmmount = () => cartItems.length;
