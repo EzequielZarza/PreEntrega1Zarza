@@ -7,16 +7,17 @@ export const CartProvider = ({children}) => {
 
     const addItemToCart = item => {
       setCartItems([...cartItems, item]);
-    }
+    };
 
     const removeItemFromCart = ({id}) => {
-      const itemIdToDelete = cartItems.findIndex(unwantedItem => unwantedItem.id === id);
-      let remainingItems = [...cartItems];
-      remainingItems.splice(itemIdToDelete, 1);
-      setCartItems(remainingItems);
-    }
+      setCartItems(cartItems.filter(item => item.id !== id));
+    };
 
-    const itemsInCartAmmount = () => cartItems.length;
+    const itemsInCartAmmount = () => cartItems.reduce((accumulator, item) => (accumulator += item?.amount), 0);
+
+    const clearCart = () => setCartItems();
+
+    const isInCart = id => cartItems.some(item => item.id === id);
 
     return (
         <CartContext.Provider
@@ -25,7 +26,9 @@ export const CartProvider = ({children}) => {
             setCartItems,
             addItemToCart,
             removeItemFromCart,
-            itemsInCartAmmount
+            itemsInCartAmmount,
+            clearCart,
+            isInCart
           }}
         >
           {children}

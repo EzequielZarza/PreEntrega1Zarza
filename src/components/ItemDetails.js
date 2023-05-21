@@ -15,12 +15,13 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
   const { addItemToCart, removeItemFromCart } = useContext(CartContext);
   const imagePath = `../images/${id}.png`;
 
-  const handleAddedItemToCart = amount => {
-    addItemToCart({ id, title, description, price });
+  const handleItemAdditionToCart = amount => {
+    console.log({ id, title, price, amount })
+    addItemToCart({ id, title, price, amount });
   };
 
-  const handleSubstractedItemToCart = amount => {
-    removeItemFromCart ({ id, title, description, price });
+  const handleItemSubstractionToCart = amount => {
+    removeItemFromCart({ id, title, description, price });
   };
 
   return (
@@ -44,15 +45,21 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
             </Typography>
           </Box>
           <Box>
-            <ItemCount stock={stock} onAdd={handleAddedItemToCart} onSubstract={handleSubstractedItemToCart}/>
+            <ItemCount
+              stock={stock}
+              onAdd={handleItemAdditionToCart}
+              onSubstract={handleItemSubstractionToCart}
+            />
           </Box>
           <Box sx={{ mt: 2 }} >
-          <Button
-            variant="outlined"
-            startIcon={<ShoppingCartCheckoutIcon />}
-            component={NavLink}
-            to='/cart'
-            >
+            <Button
+              color='inherit'
+              variant="outlined"
+              startIcon={<ShoppingCartCheckoutIcon />}
+              component={NavLink}
+              to='/cart'
+              size="large"
+              >
               Finalizar compra
             </Button>
           </Box>
