@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -8,17 +9,19 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ItemCount from './ItemCount';
+import { CartContext } from '../context/cartContext';
 
 const ItemDetail = ({ id, title, description, price, stock }) => {
+  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
   const imagePath = `../images/${id}.png`;
 
   const handleAddedItemToCart = amount => {
-    console.log('item added');
-  }
+    addItemToCart({ id, title, description, price });
+  };
 
   const handleSubstractedItemToCart = amount => {
-    console.log('item substracted');
-  }
+    removeItemFromCart ({ id, title, description, price });
+  };
 
   return (
     <>

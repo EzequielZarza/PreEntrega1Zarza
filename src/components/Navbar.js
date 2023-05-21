@@ -12,7 +12,6 @@ const Navbar = () => {
     <AppBar position="absolute" >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{mt:'0.5%'}}>
-
           <CategoryList />
           <Box sx={{marginLeft:'85%', display: 'inline-flex'}}>
             <CartWidget/>
