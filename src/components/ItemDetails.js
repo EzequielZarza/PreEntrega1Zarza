@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -9,11 +9,20 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ItemCount from './ItemCount';
-import { CartContext } from '../context/cartContext';
+import { CartContext } from '../context/CartContext';
 
 const ItemDetail = ({ id, title, description, price, stock }) => {
-  const { addItemToCart, removeItemFromCart } = useContext(CartContext);
+  const { cartItems, addItemToCart, removeItemFromCart } = useContext(CartContext);
   const imagePath = `../images/${id}.png`;
+
+  const [ itemIsInCart, setItemIsInCart] = useState(false);
+
+  const isInCart = id => cartItems?.find(item => item.id === id) 
+
+
+  useEffect(() => {
+    setItemIsInCart(isInCart(id));
+  },[cartItems])
 
   const handleItemAdditionToCart = amount => {
     console.log({ id, title, price, amount })
@@ -23,6 +32,7 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
   const handleItemSubstractionToCart = amount => {
     removeItemFromCart({ id, title, description, price });
   };
+
 
   return (
     <>
@@ -41,7 +51,7 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
           </Card>
           <Box>
             <Typography component='h5' variant='h6' textAlign='center'>
-              U${price}
+              US${price}
             </Typography>
           </Box>
           <Box>
@@ -49,19 +59,22 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
               stock={stock}
               onAdd={handleItemAdditionToCart}
               onSubstract={handleItemSubstractionToCart}
+              itemAlreadyInCart={itemIsInCart}
             />
           </Box>
           <Box sx={{ mt: 2 }} >
-            <Button
-              color='inherit'
-              variant="outlined"
-              startIcon={<ShoppingCartCheckoutIcon />}
-              component={NavLink}
-              to='/cart'
-              size="large"
-              >
-              Finalizar compra
-            </Button>
+            {itemIsInCart ?
+              <Button
+                color='inherit'
+                variant="outlined"
+                startIcon={<ShoppingCartCheckoutIcon />}
+                component={NavLink}
+                to='/cart'
+                size="large"
+                >
+                Ir al carrito
+              </Button> : null
+            }
           </Box>
         </Grid>
 
