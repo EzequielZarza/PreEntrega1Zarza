@@ -4,7 +4,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import getCategories from '../API-mock/getCategories';
+//import getCategories from '../API-mock/getCategories';
+import { getCategories } from '../utils/utils';
 import { NavLink } from 'react-router-dom';
 
 const CategoryList = () => {

@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import ItemList from './ItemList';
-import getProducts from '../API-mock/getProducts';
+//import getProducts from '../API-mock/getProducts';
+import { getProducts } from '../utils/utils';
 import LoadingSpinner from './LoadingSpinner';
 
 

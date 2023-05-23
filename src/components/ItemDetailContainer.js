@@ -1,9 +1,9 @@
-//import getItem from '../API-mock/getProducts';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import ItemDetails from './ItemDetails';
-import getItem from '../API-mock/getItem';
+//import getItem from '../API-mock/getItem';
+import { getItem } from '../utils/utils';
 import LoadingSpinner from './LoadingSpinner';
 
 const ItemDetailContainer = () => {
