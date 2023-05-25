@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Item from './Item'
+import { Item } from './Item/index'
 import HomeIcon from '@mui/icons-material/Home';
 
 import PaymentIcon from '@mui/icons-material/Payment';
