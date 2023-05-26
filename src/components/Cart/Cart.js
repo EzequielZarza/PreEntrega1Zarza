@@ -1,16 +1,15 @@
 import { useContext, Fragment, useState } from "react";
-import { CartContext } from '../../context/CartContext';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import { Item } from '../Item/index'
-
 import PaymentIcon from '@mui/icons-material/Payment';
 import Grid from '@mui/material/Grid';
 import { ButtonGroup } from "@mui/material";
 import Checkout from "../Checkout/Checkout";
 import HomeButton from "../CodervakUI/HomeButton";
 import CodervakTypography from "../CodervakUI/CodervakTypography";
+import { CartContext } from '../../context/CartContext';
 
 const Cart = () => {
     const { cartItems, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);

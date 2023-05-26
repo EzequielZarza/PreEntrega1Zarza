@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import HomeIcon from '@mui/icons-material/Home';
 
-
 const HomeButton = () =>
   <Button
     color='inherit'

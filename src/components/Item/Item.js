@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import CodervakTypography from '../CodervakUI/CodervakTypography'
 
 const Item = ({ id, title, price }) => {
   const imagePath = `../images/${id}.png`;
@@ -21,9 +22,9 @@ const Item = ({ id, title, price }) => {
           onClick={handleNavigation}
         />
         <CardContent>
-          <Typography variant='body2' color='text.secondary' noWrap>
+          <CodervakTypography variant='body2' color='text.secondary'>
             {title}
-          </Typography>
+          </CodervakTypography>
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -31,12 +32,13 @@ const Item = ({ id, title, price }) => {
             size='small'
             color='error'
             onClick={handleNavigation}
+            sx={{mb: -3}}
         >
           Ver más
         </Button>
-        <Typography variant='subtitle2' color='text.secondary' align='right'>
-          {`U$${price}`}
-        </Typography>
+        <CodervakTypography variant='subtitle2' color='text.secondary' align='right'>
+          {`US$${price}`}
+        </CodervakTypography>
       </CardActions>
     </Card>
   );

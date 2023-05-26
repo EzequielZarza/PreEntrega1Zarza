@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
@@ -10,6 +9,7 @@ import Button from '@mui/material/Button';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import ItemCount from './ItemCount';
 import { CartContext } from '../../context/CartContext';
+import CodervakTypography from '../CodervakUI/CodervakTypography';
 
 const ItemDetail = ({ id, title, description, price, stock }) => {
   const { cartItems, addItemToCart, removeItemFromCart } = useContext(CartContext);
@@ -50,9 +50,9 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
             <CardMedia component='img' image={imagePath} alt={id} />
           </Card>
           <Box>
-            <Typography component='h5' variant='h6' textAlign='center'>
+            <CodervakTypography component='h5' variant='h6'>
               US${price}
-            </Typography>
+            </CodervakTypography>
           </Box>
           <Box>
             <ItemCount
@@ -79,11 +79,13 @@ const ItemDetail = ({ id, title, description, price, stock }) => {
         </Grid>
 
         <Grid item xs={12} sm={6} md={7.8}>
-          <Typography component='h3' textAlign='center' gutterBottom>
+          <CodervakTypography component='h3'>
             {title}
-          </Typography>
+          </CodervakTypography>
           <Divider />
-          {description}
+          <CodervakTypography component='h3'>
+            {description}
+          </CodervakTypography>
           <Divider sx={{ mb: 2 }} />
         </Grid>
       </Grid>

@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import LoadingSpinner from './CodervakUI/LoadingSpinner';
 import { BuyerContext } from '../context/BuyerContext';
 import { CartContext } from '../context/CartContext';
@@ -9,12 +8,12 @@ import CodervakTypography from './CodervakUI/CodervakTypography';
 import Box from '@mui/system/Box';
 import HomeButton from './CodervakUI/HomeButton';
 
-
 const PurchaseResult = () => {
+  const { cartItems, totalPrice, clearCart} = useContext(CartContext);
+  const { buyer, resetBuyer} = useContext(BuyerContext)
+
   const [orderId, setOrderId] = useState(null);
   const [error, setError] = useState(null);
-  const { cartItems, itemsInCartAmmount, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);
-  const { buyer, resetBuyer} = useContext(BuyerContext)
   const [buyerDetails, setBuyerDetails] = useState({})
   const [purchasePrice, setPurchasePrice] = useState(null)
 
@@ -32,10 +31,6 @@ const PurchaseResult = () => {
     }
     finishPurchase()
   },[]);
-
-
-
-  console.log('order', orderId)
 
   return orderId ?
   <Box>

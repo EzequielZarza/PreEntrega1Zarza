@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
 import ItemList from './ItemList';
-//import getProducts from '../API-mock/getProducts';
 import { getProducts } from '../../utils/utils';
 import LoadingSpinner from '../CodervakUI/LoadingSpinner';
-
+import CodervakTypography from '../CodervakUI/CodervakTypography';
 
 const ItemListContainer = ({greetings}) => {
 
@@ -30,21 +28,9 @@ const ItemListContainer = ({greetings}) => {
     return (
         !isLoading ?
         <>
-            <Typography
-                variant="h5"
-                noWrap
-                sx={{
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                mt: '5%'
-                }}
-                align="center"
-                >   
-            {categoryId ? categoryId : greetings}
-            </Typography>
+            <CodervakTypography variant="h5">   
+                {categoryId ? categoryId : greetings}
+            </CodervakTypography>
             <ItemList items={products}/>
         </> : <LoadingSpinner/>
     );

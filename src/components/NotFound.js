@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import Typography from '@mui/material/Typography';
+import CodervakTypography from "./CodervakUI/CodervakTypography";
 
 const NotFound = () => {
 
@@ -11,21 +11,9 @@ const NotFound = () => {
     });
 
     return (
-        <Typography
-            variant="h5"
-            noWrap
-            sx={{
-            fontFamily: 'monospace',
-            fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'inherit',
-            textDecoration: 'none',
-            mt: '5%'
-            }}
-            align="center"
-        >   
+        <CodervakTypography variant="h5">   
             No se encontro la pagina!, no te preocupes, seras redireccionado al inicio!
-        </Typography>
+        </CodervakTypography>
     )
 };
 

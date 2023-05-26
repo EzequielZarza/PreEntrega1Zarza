@@ -1,8 +1,6 @@
 import { useState, useContext , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { BuyerContext } from '../../context/BuyerContext';
-
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';

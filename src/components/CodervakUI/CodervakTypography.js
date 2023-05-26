@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 
-const CodervakTypography = ({variant, children, color, mt}) => {
+const CodervakTypography = ({variant, children, color, mt, align = 'center', component = ''}) => {
     const typographySX = {
         fontFamily: 'monospace',
         fontWeight: 700,
@@ -9,7 +9,7 @@ const CodervakTypography = ({variant, children, color, mt}) => {
         textDecoration: 'none',
         mt: mt ? mt : '5%'
     };
-    return <Typography variant={variant} align="center" noWrap sx={typographySX}>{children}</Typography>;
+    return <Typography component={component} variant={variant} align={align} noWrap sx={typographySX}>{children}</Typography>;
 };
 
 export default CodervakTypography;

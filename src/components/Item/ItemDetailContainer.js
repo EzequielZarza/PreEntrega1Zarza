@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
 import ItemDetails from './ItemDetails';
-//import getItem from '../API-mock/getItem';
 import { getItem } from '../../utils/utils';
 import LoadingSpinner from '../CodervakUI/LoadingSpinner';
+import CodervakTypography from '../CodervakUI/CodervakTypography';
 
 const ItemDetailContainer = () => {
 
@@ -26,21 +25,9 @@ const ItemDetailContainer = () => {
     return (
         selectedItem ?
         <>
-            <Typography
-                variant="h5"
-                noWrap
-                sx={{
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                mt: '5%'
-                }}
-                align="center"
-                >   
+            <CodervakTypography variant="h5">   
                 Especificaciones
-            </Typography>
+            </CodervakTypography>
             <ItemDetails {...selectedItem} />
         </> : <LoadingSpinner/>
     )

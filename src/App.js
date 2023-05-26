@@ -11,19 +11,19 @@ import { BuyerProvider } from './context/BuyerContext';
 const App = () => 
   <div className="App">
     <BrowserRouter>
-    <BuyerProvider>
-      <CartProvider>
-      <Navbar/>
-        <Routes>
-          <Route path='/' element={<ItemListContainer greetings={'Bienvenido a Codervak!'}/>}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/sale-result' element={<PurchaseResult/>} />
-          <Route path='/*' element={<NotFound/>} />
+      <BuyerProvider>
+        <CartProvider>
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer greetings={'Bienvenido a Codervak!'}/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer />} />
+            <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/sale-result' element={<PurchaseResult/>} />
+            <Route path='/*' element={<NotFound/>} />
         </Routes>
-      </CartProvider>
-      </BuyerProvider>
+        </CartProvider>
+        </BuyerProvider>
     </BrowserRouter>
   </div>
 
