@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { Typography } from '@mui/material';
 
 const ItemCount = ({stock, onAdd, itemAlreadyInCart}) => {
     const [productCounter, setproductCounter] = useState(0);
@@ -31,10 +32,14 @@ const ItemCount = ({stock, onAdd, itemAlreadyInCart}) => {
             <Box>
                 <ButtonGroup>
                     <Button disabled={productCounter <= 0 || itemAlreadyInCart} onClick={onSubstraction}>-</Button>
-                    <ButtonGroup orientation='vertical'>
-                        <Button disabled>Stock disponible:</Button>
-                        <Button disabled>{stockAvailable}</Button>
-                    </ButtonGroup>           
+                    <Button disabled style={{ display: "block"}}>
+                        <Typography sx={{fontSize: 12}}>
+                            Stock disponible:
+                        </Typography>
+                        <Typography sx={{fontSize: 12}}>
+                        {stockAvailable}
+                        </Typography>
+                    </Button>
                     <Button disabled={productCounter >= stock || itemAlreadyInCart} onClick={onAddition}>+</Button>
                 </ButtonGroup>
             </Box>

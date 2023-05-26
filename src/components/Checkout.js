@@ -7,17 +7,12 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import CodervakTypography from './CodervakTypography';
-
-
-const steps = ['Dirección de envío', 'Detalles del pago', 'Chequeo de datos'];
+import CheckoutFields from './CheckoutFields';
 
 const Checkout = ({setShowCheckoutForm}) => {
   const { setBuyer } = useContext(BuyerContext);
-
   const redirect = useNavigate();
-
 
   const [ name, setName ] = useState(null);
   const [ phone, setPhone ] = useState(null);
@@ -44,52 +39,25 @@ const Checkout = ({setShowCheckoutForm}) => {
     setPhone(event.target.value);
   }
 
-
   const finishOrder = () => {
     const buyer = {name: name, phone: phone, email: email}
     setBuyer(buyer)
     redirect('/sale-result');
   }
 
-
   const handleCancel = () => setShowCheckoutForm(false)
 
   return (
-    <>
-      <Container
-        component='main'
-        maxWidth='sm'
-      >
-        <Paper
-          sx={{ mt: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
-          elevation={12}
-        >
+    <Box display='flex' gap justifyContent={'center'} my mb={4} mt={-4} >
+      <Container  component='main' maxWidth='sm'>
+        <Paper sx={{ mt: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={12}>
           <CodervakTypography variant="h5">
             Checkout
           </CodervakTypography>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', margin: 5 }}>
-              <TextField
-                required
-                id="outlined-required"
-                label="Required"
-                defaultValue="Name"
-                onChange={handleName}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Required"
-                defaultValue="Phone"
-                onChange={handlePhone}
-              />
-              <TextField
-                required
-                id="outlined-required"
-                label="Required"
-                defaultValue="Email"
-                onChange={handleEmail}
-              />
-              
+              <CheckoutFields defaultValue='Name' onChange={handleName}/>
+              <CheckoutFields defaultValue="Phone" onChange={handlePhone}/>
+              <CheckoutFields defaultValue="Email" onChange={handleEmail}/>              
             </Box>
             <Box >
             
@@ -112,7 +80,7 @@ const Checkout = ({setShowCheckoutForm}) => {
             </Box>
         </Paper>
       </Container>
-    </>
+    </Box>
   );
 };
 

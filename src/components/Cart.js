@@ -14,7 +14,6 @@ import CodervakTypography from "./CodervakTypography";
 
 const Cart = () => {
     const { cartItems, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);
-    console.log(cartItems)
 
     const [ showCheckoutForm, setShowCheckoutForm ] = useState(false)
 
@@ -26,8 +25,8 @@ const Cart = () => {
                 Mi carrito
             </CodervakTypography>
             <Divider variant='middle' sx={{ mt: 2 }} />
-                {cartItems.length > 0 ? (
-                    <>
+            {cartItems.length > 0 ? (
+                <>
                     <Box display='flex' gap justifyContent={'center'}>
                         {cartItems.map(item => (
                         <Fragment key={item.id}>
@@ -39,13 +38,11 @@ const Cart = () => {
                             </Grid>                   
                         </Fragment>
                         ))}
-                    </Box>
-            
-                    <CodervakTypography variant='h6'>
+                    </Box>            
+                    <CodervakTypography variant='h6' mt={-1}>
                         Precio Total: {'US$' + totalPrice()}
                     </CodervakTypography>
-            
-                    <Box display='flex' gap justifyContent={'center'} my mt={4}>
+                    <Box display='flex' gap justifyContent={'center'} my >
                         <ButtonGroup>
                             <Button
                                 variant="outlined"
@@ -58,27 +55,23 @@ const Cart = () => {
                             <Button
                             variant='outlined'
                             color='success'
-                            // component={NavLink}
-                            // to='/checkout'
                             onClick={handleClick}
                             startIcon={<PaymentIcon />}
                             sx={{margin: 5, marginLeft: 5}}
                             >
                             Proceder al pago
                             </Button>
-                        </ButtonGroup>
-                        
+                        </ButtonGroup>                           
                     </Box>
                     {showCheckoutForm ? <Checkout setShowCheckoutForm={setShowCheckoutForm}/> : null}
-
-                    </>) : (<>
-                        <CodervakTypography variant="h5">
-                            No Hay nada en el carrito! pero no se preocupe! vuelva al inicio para ver que onda
-                        </CodervakTypography>
-                        <HomeButton/>
-                    </>)}
+                </>) : (<>
+                    <CodervakTypography variant="h5">
+                        No Hay nada en el carrito! pero no se preocupe! vuelva al inicio para ver que onda
+                    </CodervakTypography>
+                    <HomeButton/>
+                </>)}
         </Box>
-      );
+    );
 };
     
 export default Cart;
