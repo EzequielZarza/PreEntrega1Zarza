@@ -1,21 +1,19 @@
 import { useContext, Fragment, useState } from "react";
 import { CartContext } from '../context/CartContext';
-import { NavLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Item } from './Item/index'
-import HomeIcon from '@mui/icons-material/Home';
 
 import PaymentIcon from '@mui/icons-material/Payment';
 import Grid from '@mui/material/Grid';
 import { ButtonGroup } from "@mui/material";
 import Checkout from "./Checkout";
-
+import HomeButton from "./HomeButton";
+import CodervakTypography from "./CodervakTypography";
 
 const Cart = () => {
-    const { cartItems, itemsInCartAmmount, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);
+    const { cartItems, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);
     console.log(cartItems)
 
     const [ showCheckoutForm, setShowCheckoutForm ] = useState(false)
@@ -24,19 +22,9 @@ const Cart = () => {
 
     return (
         <Box >
-            <Typography variant="h5"
-                noWrap
-                sx={{
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                mt: '5%'
-                }}
-                align="center">
+            <CodervakTypography variant="h5">
                 Mi carrito
-            </Typography>
+            </CodervakTypography>
             <Divider variant='middle' sx={{ mt: 2 }} />
                 {cartItems.length > 0 ? (
                     <>
@@ -45,38 +33,17 @@ const Cart = () => {
                         <Fragment key={item.id}>
                             <Grid spacing={2} py={3}>
                                 <Item {...item} removeItemFromCart={removeItemFromCart}/>
-                                <Typography
-                                variant='h3'
-                                color='text.secondary'
-                                noWrap
-                                sx={{
-                                    fontFamily: 'monospace',
-                                    fontWeight: 700,
-                                    textDecoration: 'none',
-                                    margin: 2
-                                    }}
-                                >
+                                <CodervakTypography variant='h3' color='text.secondary'>
                                     {item.amount}
-                                </Typography>
+                                </CodervakTypography>
                             </Grid>                   
                         </Fragment>
                         ))}
                     </Box>
             
-                    <Typography
-                        variant='h6'
-                        noWrap
-                        sx={{
-                        fontFamily: 'monospace',
-                        fontWeight: 700,
-                        letterSpacing: '.3rem',
-                        color: 'inherit',
-                        textDecoration: 'none',
-                        }}
-                        align="center"
-                    >
+                    <CodervakTypography variant='h6'>
                         Precio Total: {'US$' + totalPrice()}
-                    </Typography>
+                    </CodervakTypography>
             
                     <Box display='flex' gap justifyContent={'center'} my mt={4}>
                         <ButtonGroup>
@@ -105,32 +72,10 @@ const Cart = () => {
                     {showCheckoutForm ? <Checkout setShowCheckoutForm={setShowCheckoutForm}/> : null}
 
                     </>) : (<>
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            sx={{
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                            mt: '5%'
-                            }}
-                            align="center"
-                            >
+                        <CodervakTypography variant="h5">
                             No Hay nada en el carrito! pero no se preocupe! vuelva al inicio para ver que onda
-                        </Typography>
-                        <Button
-                            color='inherit'
-                            variant="outlined"
-                            startIcon={<HomeIcon />}
-                            component={NavLink}
-                            to='/'
-                            size="large"
-                            sx={{margin: 5}}
-                            >
-                            De vuelta al Inicio
-                        </Button>
+                        </CodervakTypography>
+                        <HomeButton/>
                     </>)}
         </Box>
       );

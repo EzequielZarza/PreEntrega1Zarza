@@ -2,20 +2,24 @@ import { useState, createContext } from 'react';
 export const BuyerContext = createContext();
 
 export const BuyerProvider = ({ children }) => {
-  const [buyer, setBuyer] = useState({});
+  const [buyer, setBuyer] = useState({
+    name: '',
+    email: '',
+    phone: ''
+  });
   const [errors, setErrors] = useState({});
 
-  const handleChange = ({ target: { name, value } }) => {
-    setBuyer({
-      ...buyer,
-      [name]: value,
-    });
+  // const handleChange = ({ target: { name, value } }) => {
+  //   setBuyer({
+  //     ...buyer,
+  //     [name]: value,
+  //   });
 
-    setErrors({
-      ...errors,
-      [name]: '',
-    });
-  };
+  //   setErrors({
+  //     ...errors,
+  //     [name]: '',
+  //   });
+  // };
 
   const resetBuyer = () => {
     setBuyer({});
@@ -25,7 +29,7 @@ export const BuyerProvider = ({ children }) => {
   return (
     <BuyerContext.Provider
       value={{
-        handleChange,
+        // handleChange,
         buyer,
         errors,
         setErrors,

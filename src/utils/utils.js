@@ -27,19 +27,18 @@ export const getCategories = async () => {
 };
 
 
-export const dispatchSale = async ({ buyer, cartItems, salePrice, setOrderId, setError}) => {
-    const sale = {
+export const dispatchPurchase = async ({ buyer, cartItems, price, setOrderId, setError}) => {
+    const purchase = {
         buyer: buyer,
-        saleItems: cartItems,
-        salePrice: salePrice,
+        purchaseItems: cartItems,
+        price: price,
         date: Timestamp.fromDate(new Date()),
     };
     try{
-        const salesCollection = collection(db, "sales");
-        const { id } = await addDoc(salesCollection, sale);
-        const saleId = id;
-        setOrderId(saleId)
+        const purchaseCollection = collection(db, "purchase");
+        const { id } = await addDoc(purchaseCollection, purchase);
+        setOrderId(id);
     }catch(error){
-        setError(error)
+        setError(error);
     }
-}
+};

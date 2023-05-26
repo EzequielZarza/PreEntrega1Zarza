@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import { CartProvider } from './context/CartContext';
 import Cart from './components/Cart'
-import SaleResult from './components/SaleResult';
+import PurchaseResult from './components/PurchaseResult';
 import { BuyerProvider } from './context/BuyerContext';
 
 const App = () => 
@@ -19,7 +19,7 @@ const App = () =>
           <Route path='/category/:categoryId' element={<ItemListContainer />} />
           <Route path='/item/:itemId' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<Cart/>} />
-          <Route path='/sale-result' element={<SaleResult/>} />
+          <Route path='/sale-result' element={<PurchaseResult/>} />
           <Route path='/*' element={<NotFound/>} />
         </Routes>
       </CartProvider>
