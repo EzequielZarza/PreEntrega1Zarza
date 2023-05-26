@@ -27,7 +27,7 @@ Estos archivos estan en la carpeta API-mocks, que no se esta usando pero se deja
 
 Para realizar el deploy de la aplicacion, se uso [Vercel](https://vercel.com/)
 
-La version que fue "deployada" se encuentra en el siguiente link
+La version que fue "deployada" se encuentra en el siguiente link: [Codervak](https://pre-entrega1-zarza.vercel.app/).
 
 
 ## Arquitectura de la aplicacion
