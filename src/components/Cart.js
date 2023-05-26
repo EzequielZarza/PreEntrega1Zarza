@@ -1,4 +1,4 @@
-import { useContext, Fragment } from "react";
+import { useContext, Fragment, useState } from "react";
 import { CartContext } from '../context/CartContext';
 import { NavLink } from 'react-router-dom';
 import Box from '@mui/material/Box';
@@ -11,11 +11,17 @@ import HomeIcon from '@mui/icons-material/Home';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Grid from '@mui/material/Grid';
 import { ButtonGroup } from "@mui/material";
+import Checkout from "./Checkout";
 
 
 const Cart = () => {
     const { cartItems, itemsInCartAmmount, removeItemFromCart, totalPrice, clearCart} = useContext(CartContext);
     console.log(cartItems)
+
+    const [ showCheckoutForm, setShowCheckoutForm ] = useState(false)
+
+    const handleClick = () => setShowCheckoutForm(true) 
+
     return (
         <Box >
             <Typography variant="h5"
@@ -85,16 +91,19 @@ const Cart = () => {
                             <Button
                             variant='outlined'
                             color='success'
-                            component={NavLink}
-                            to='/checkout'
+                            // component={NavLink}
+                            // to='/checkout'
+                            onClick={handleClick}
                             startIcon={<PaymentIcon />}
-                            sx={{margin: 5}}
+                            sx={{margin: 5, marginLeft: 5}}
                             >
                             Proceder al pago
                             </Button>
                         </ButtonGroup>
                         
                     </Box>
+                    {showCheckoutForm ? <Checkout setShowCheckoutForm={setShowCheckoutForm}/> : null}
+
                     </>) : (<>
                         <Typography
                             variant="h5"

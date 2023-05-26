@@ -1,5 +1,5 @@
 import { db } from "../firebase/config"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, addDoc, Timestamp } from "firebase/firestore"
 
 export const getProducts = async () => {
     const response = collection(db, "products");
@@ -25,3 +25,21 @@ export const getCategories = async () => {
     
     return categories;
 };
+
+
+export const dispatchSale = async ({ buyer, cartItems, salePrice, setOrderId, setError}) => {
+    const sale = {
+        buyer: buyer,
+        saleItems: cartItems,
+        salePrice: salePrice,
+        date: Timestamp.fromDate(new Date()),
+    };
+    try{
+        const salesCollection = collection(db, "sales");
+        const { id } = await addDoc(salesCollection, sale);
+        const saleId = id;
+        setOrderId(saleId)
+    }catch(error){
+        setError(error)
+    }
+}
