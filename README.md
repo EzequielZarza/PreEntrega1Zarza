@@ -29,7 +29,6 @@ Para realizar el deploy de la aplicacion, se uso [Vercel](https://vercel.com/)
 
 La version que fue "deployada" se encuentra en el siguiente link: [Codervak](https://pre-entrega1-zarza.vercel.app/).
 
-
 ## Arquitectura de la aplicacion
 
 ### src
@@ -70,6 +69,13 @@ Dentro del codigo fuente, se tienen 4 carpetas
     7. NotFound: usado para mostrar que se esta en un lugar incorrecto (redirecciona al usuario)
 
     8. PurchaseRsult: Muestra al usuario el resultado de la compra, sea exitosa o no
+
+## Demostracion
+
+![](https://github.com/EzequielZarza/PreEntrega1Zarza/blob/main/demo-gifs/Codervak-Peek1.gif)
+
+
+![](https://github.com/EzequielZarza/PreEntrega1Zarza/blob/main/demo-gifs/Codervak-Peek2.gif)
 
 
 ## Comandos
