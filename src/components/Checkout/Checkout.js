@@ -1,13 +1,13 @@
 import { useState, useContext , useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { BuyerContext } from '../context/BuyerContext';
+import { BuyerContext } from '../../context/BuyerContext';
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import CodervakTypography from './CodervakTypography';
+import CodervakTypography from '../CodervakUI/CodervakTypography';
 import CheckoutFields from './CheckoutFields';
 
 const Checkout = ({setShowCheckoutForm}) => {

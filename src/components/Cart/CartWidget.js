@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../context/CartContext';
 import { Button } from '@mui/material';
 
 const CartWidget = () => {

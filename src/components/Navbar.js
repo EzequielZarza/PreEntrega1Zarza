@@ -1,7 +1,7 @@
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import CartWidget from './CartWidget'
+import CartWidget from './Cart/CartWidget'
 import CategoryList from './CategoryList';
 import HomeIcon from '@mui/icons-material/Home';
 import { NavLink } from 'react-router-dom';

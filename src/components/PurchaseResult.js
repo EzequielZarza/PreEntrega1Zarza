@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from './CodervakUI/LoadingSpinner';
 import { BuyerContext } from '../context/BuyerContext';
 import { CartContext } from '../context/CartContext';
 import { dispatchPurchase } from '../utils/utils';
 
-import CodervakTypography from './CodervakTypography';
+import CodervakTypography from './CodervakUI/CodervakTypography';
 import Box from '@mui/system/Box';
-import HomeButton from './HomeButton';
+import HomeButton from './CodervakUI/HomeButton';
 
 
 const PurchaseResult = () => {
@@ -52,7 +52,7 @@ const PurchaseResult = () => {
        {`La compra fue realizada por: ${buyerDetails.name}, telefono ${buyerDetails.phone} y correo ${buyerDetails.email}`}
     </CodervakTypography>
     <CodervakTypography noWrap align="center">
-       {`Por un total de: US${purchasePrice}`}
+       {`Por un total de: US$${purchasePrice}`}
     </CodervakTypography>
     <HomeButton/>
 

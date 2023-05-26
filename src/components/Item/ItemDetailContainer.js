@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import ItemDetails from './ItemDetails';
 //import getItem from '../API-mock/getItem';
 import { getItem } from '../../utils/utils';
-import LoadingSpinner from '../LoadingSpinner';
+import LoadingSpinner from '../CodervakUI/LoadingSpinner';
 
 const ItemDetailContainer = () => {
 

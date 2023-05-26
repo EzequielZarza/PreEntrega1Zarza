@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import ItemList from './ItemList';
 //import getProducts from '../API-mock/getProducts';
 import { getProducts } from '../../utils/utils';
-import LoadingSpinner from '../LoadingSpinner';
+import LoadingSpinner from '../CodervakUI/LoadingSpinner';
 
 
 const ItemListContainer = ({greetings}) => {
